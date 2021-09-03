@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery-Learn</title>
+</head>
+<body>
+    <form action="/formpost" method="POST">
+     <div style="text-align:center"><label>Name:</label><br> 
+     <input type="text" id="name"><br>
+     <label>Class:</label> <br>  
+     <input type="text" id="class"><br>
+     <label>Roll No.:</label><br>   
+     <input type="text" id="roll_no"><br>
+     
+     <label>Course:</label> <br>  
+     <input type="text" id="course"><br>
+     <label>Contact No.:</label> <br>  
+     <input type="tel" id="contact_no"><br>
+
+     <input type="submit" id="ok"></div>
+</form>
+   
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var form = $("form")
+        form.on("submit",function(e){
+            e.preventDefault();
+            console.log($("#name").val());
+            console.log($("#class").val());
+            console.log($("#roll_no").val());
+            console.log($("#course").val());
+            console.log($("#contact_no").val());
+
+            $.ajax({
+                type:"POST",
+                contentType:"application/json",
+                url:"http://localhost:2000/formpost",
+                data:JSON.stringify({
+                    name:$("#name").val(),
+                    class:$("#class").val(),
+                    roll_no:$("#roll_no").val(),
+                    course:$("#course").val(),
+                    contact_no:$("#contact_no").val()
+                  })
+            
+            })
+            .done(()=>{
+                    alert("form submitted successfully");
+                })
+            .fail(function(xhr, status, error) {
+                    alert(xhr.responseText);
+                });
+            });
+    
+    </script>
+</body>
+</html>
