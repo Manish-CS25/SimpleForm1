@@ -13,7 +13,7 @@ Node.js and npm Node >= 8 LTS
 ## Clone by Git
 
 ```
-git clone https://github.com/caffeines/File-Cloud.git
+git clone https://github.com/Manish-CS25/SimpleForm1.git
 ```
 
 ## Install all the dependecies
