@@ -1,5 +1,6 @@
 const express = require("express");
 const student = require("../models/student");
+const searchParams = require("../models/searching");
 const router = express.Router();
 const control = require("../controller/studentController");
 
@@ -11,5 +12,7 @@ router.post("/formpost", control.saveDetails);
 //   console.log(req.body.course);
 //   console.log(req.body.contact_no);
 //   return res.status(200).send("success");
+
+router.get("/search", control.searchbox);
 
 module.exports = router;
